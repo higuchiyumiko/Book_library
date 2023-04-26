@@ -30,4 +30,8 @@ class BookController extends Controller
         $book->fill($input_book)->save();
         return redirect('/books/'.$book->id);
     }
+    public function delete(Book $book){
+        $book->delete();
+        return redirect('/');
+    }
 }

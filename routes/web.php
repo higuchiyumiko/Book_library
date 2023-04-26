@@ -15,6 +15,7 @@ use App\Http\Controllers\BookController;
 
 Route::get('/', [BookController::class,'index']);
 Route::get('/books/create',[BookController::class,'create']);
+Route::delete('books/{book}',[BookController::class,'delete']);
 Route::get('books/{book}/edit',[BookController::class,'edit']);
 Route::put('books/{book}',[BookController::class,'update']);
 Route::get('/books/{book}',[BookController::class,'show']);
