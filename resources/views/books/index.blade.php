@@ -12,7 +12,7 @@
            @foreach ($books as $book)
             <div class='book'>
                 <h2 class='title'>
-                    <a href="/book/{{$book->id}}">{{$book->name}}</a>
+                    <a href="/books/{{$book->id}}">{{$book->name}}</a>
                 </h2>
                 <p class='body'>{{$book->author}}</p>
             </div>
@@ -21,5 +21,6 @@
         <div class='paginate'>
             {{$books->links()}}
         </div>
+        <a href='/books/create'>投稿する</a>
     </body>
 </html>
