@@ -22,4 +22,12 @@ class BookController extends Controller
         $book->fill($input)->save();
         return redirect('/books/'.$book->id);
     }
+    public function edit(Book $book){
+        return view('books/edit')->with(['book'=>$book]);
+    }
+    public function update(BookRequest $request,Book $book){
+        $input_book=$request['books'];
+        $book->fill($input_book)->save();
+        return redirect('/books/'.$book->id);
+    }
 }
