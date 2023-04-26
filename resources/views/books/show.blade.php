@@ -18,8 +18,23 @@
                 <p>{{$book->author}}</p>
             </div>
         </div>
+        <div class="edit"><a href="/books/{{$book->id}}/edit"/>編集する</a></div><br>
+        <form action="/books/{{$book->id}}" id="form_{{$book->id}}" method="post">
+            @csrf
+            @method('DELETE')
+            <button type="button" onclick="deletePost({{$book->id}})">削除する</button><br><br>
+        </form>
         <div class="footer">
             <a href="/">戻る</a>
         </div>
+        <script>
+            function deletePost(id){
+                'use strict'
+                
+                if(confirm('削除すると復元できません。\n本当に削除しますか?')){
+                    document.getElementById(`form_${id}`).submit();
+                }
+            }
+        </script>
     </body>
 </html>
