@@ -14,8 +14,13 @@
         </h1>
         <div class="content">
             <div class="content__book">
-                <h3>著者</h3>
+                <h3>作者</h3>
                 <p>{{$book->author}}</p>
+                <h3>コメント</h3>
+                <p>{{$book->comments}}</p>
+            </div>
+            <div>
+                <img src="{{$book->image}}" alt="画像が読み込めません">
             </div>
         </div>
         <div class="edit"><a href="/books/{{$book->id}}/edit"/>編集する</a></div><br>
