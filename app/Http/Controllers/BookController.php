@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Book;
+use App\Models\Category;
 //use Illuminate\Http\Request;
 use App\Http\Requests\BookRequest;
+use Cloudinary;
 
 class BookController extends Controller
 {
@@ -14,11 +16,16 @@ class BookController extends Controller
     public function show(Book $book){
         return view('books/show')->with(['book'=>$book]);
     }
-    public function create(){
-        return view('books/create');
+    public function create(Category $category){
+        return view('books/create')->with(['categories'=>$category->get()]);
+        //                                   
     }
     public function store(BookRequest $request,Book $book){
         $input=$request['books'];
+        $image_url=Cloudinary::upload($request->file('image')->getRealPath())->getSecurePath();
+       // dd($image_url);
+        
+        $input+=['image'=>$image_url];
         $book->fill($input)->save();
         return redirect('/books/'.$book->id);
     }
