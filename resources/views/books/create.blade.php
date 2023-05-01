@@ -18,7 +18,7 @@
                 <input type="text" name="books[author]" placeholder="作者を入力してください" value="{{old('books.author')}}"/><br><br>
                 <p class="body_error" style="color:red">{{$errors->first('books.author')}}</p>
                 <h2>20文字以内で一言コメントを記入してください</h2>
-                <input type="text" name="books[comments]" placeholder="(例)冒頭部分から引き込まれた！"><br><br>
+                <input type="text" name="books[comments]" placeholder="冒頭部分から引き込まれた！"><br><br>
             </div>
             <div class="category">
                 <h2>カテゴリー</h2>

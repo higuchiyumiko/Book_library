@@ -18,4 +18,7 @@ class Category extends Model
 {
     return $this->hasMany(Book::class);  
 }
+    public function getByCategory(int $limit_count=5){
+        return $this->books()->with('category')->orderBy('updated_at','DESC')->paginate($limit_count);
+    }
 }
