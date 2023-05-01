@@ -16,12 +16,13 @@
                 </h2>
                 <div class='body'>
                     <p><img src="{{$book->image}}" alt="画像が読み込めません"></p>
-                    <p>作者:{{$book->author}}</p>
-                    <a href="/categories/{{ $book->category->id }}">カテゴリー:{{ $book->category->category_name }}</a>
+                    <p>{{$book->author}}</p>
+                    <h3>カテゴリー</h3>
+                    <a href="/categories/{{ $book->category->id }}">{{ $book->category->category_name }}</a><br><br>
                 </div>
             </div>
            @endforeach
-        </div><br>
+        </div>
         <div class='paginate'>
             {{$books->links()}}
         </div>

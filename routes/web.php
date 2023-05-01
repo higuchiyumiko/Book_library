@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BookController;
+use App\Http\Controllers\CategoryController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -20,4 +21,5 @@ Route::get('books/{book}/edit',[BookController::class,'edit']);
 Route::put('books/{book}',[BookController::class,'update']);
 Route::get('/books/{book}',[BookController::class,'show']);
 Route::post('/books',[BookController::class,'store']);
+Route::get('/categories/{category}',[CategoryController::class,'index']);
 //Route::get('/books',[BookController::class,'index']);
